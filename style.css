@@ -1,0 +1,29 @@
+#jumbotron {
+    float: right;
+    width: 70%;
+    padding: 90px;
+}
+
+#red {
+    display: inline-block;
+}
+
+#blue {
+    display: inline-block;
+}
+
+#green {
+    display: inline-block;
+}
+
+#yellow {
+    display: inline-block;
+}
+
+#jumbotron {
+    color: grey;
+}
+
+#card {
+    padding: 15px;
+}

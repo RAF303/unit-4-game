@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body background="space_gif.gif">
+
+
+    <div id="colors">
+
+        <!-- <div id="blue" value="5">
+            <button>
+                <img class="blueEmer" src="blue_chaos_emerald.png" style="height:100px; width:150px;">
+
+
+            </button>
+
+
+
+
+        </div>
+
+        <div id="red">
+            <button>
+                <img class="redEmer" src="red_chaos_emerald.png" style="height:100px; width:150px;">
+            </button>
+
+        </div>
+
+        <div id="green">
+            <button>
+                <img class="greenEmer" src="green_chaos_emerald.png" style="height:100px; width:150px;">
+            </button>
+        </div>
+
+        <div id="yellow">
+            <button>
+                <img class="yellowEmer" src="yellow_chaos_emerald.png" style="height:100px; width:150px;">
+            </button> -->
+
+        <div id="jumbotron">
+
+            <h1>Chose Wisely</h1>
+
+            <div id="blue" value="5">
+                <button>
+                    <img class="blueEmer" src="blue_chaos_emerald.png" style="height:100px; width:150px;">
+
+
+                </button>
+
+            </div>
+
+            <div id="red">
+                <button>
+                    <img class="redEmer" src="red_chaos_emerald.png" style="height:100px; width:150px;">
+                </button>
+
+            </div>
+
+            <div id="green">
+                <button>
+                    <img class="greenEmer" src="green_chaos_emerald.png" style="height:100px; width:150px;">
+                </button>
+            </div>
+
+            <div id="yellow">
+                <button>
+                    <img class="yellowEmer" src="yellow_chaos_emerald.png" style="height:100px; width:150px;">
+                </button>
+            </div>
+
+
+
+
+        </div>
+
+
+        <!-- </div>
+
+    <h1>Target number</h1>
+
+    <div id="winNumber"> 
+
+    </div>
+
+    <div id="score">
+
+    </div>  -->
+
+
+
+        <!-- <div id="scoreCard">
+
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Score
+
+                </div>
+                <div id=wins class="list-group list-group-flush">
+                    <p>wins:</p>
+                    <li id="wins"></li>
+                    <p>Losses:</p>
+                    <li id="losses"></li>
+                    <p>Score:</p>
+                    <li id="score">score:</li>
+                    <p>Target Number</p>
+                    <li id="winNumber">Target Number:</li>
+                    </ul>
+
+
+                </div>
+ -->
+        <div id="card">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="SuperSonicTrophyWiiU.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Collect The Chaos Emerals</h5>
+                    <p class="card-text"> Click on the emeralds to help Sonic get to the target number to help him find the Chaos emerals!!
+                    </p>
+                </div>
+                <div id=wins class="list-group list-group-flush">
+                    <p>wins:</p>
+                    <li id="wins"></li>
+                    <p>Losses:</p>
+                    <li id="losses"></li>
+                    <p>Score:</p>
+                    <li id="score"></li>
+                    <p>Target Number</p>
+                    <li id="winNumber">Target Number:</li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+        <script>
+            var blueCryt = Math.floor(Math.random() * 12) + 1;
+            var yellowCryt = Math.floor(Math.random() * 12) + 1;
+            var redCryt = Math.floor(Math.random() * 12) + 1;
+            var greenCryt = Math.floor(Math.random() * 12) + 1;
+
+
+
+
+            // $("#blue").click(function () {
+            //     alert("The paragraph was clicked.");
+            // });
+            //  
+            //         $("#red").click(function () {
+            //             alert("The paragraph was clicked.");
+            //         });
+
+            var winNumber = Math.floor(Math.random() * 75) + 20;
+            $("#winNumber").text(winNumber)
+
+            var score = 0;
+            var wins = 0;
+            var losses = 0;
+
+
+
+
+
+            $("#blue").click(function (e) {
+                console.log($(this).attr("value"))
+                score += blueCryt
+                console.log(score)
+                $("#score").text(score)
+                checkScore()
+            });
+
+            $("#red").click(function () {
+                console.log($(this).attr("value"))
+                score += redCryt
+                console.log(score)
+                $("#score").text(score)
+                checkScore()
+            });
+
+
+            $("#green").click(function () {
+                score += greenCryt
+                console.log(score)
+                $("#score").text(score)
+                checkScore()
+            });
+
+            $("#yellow").click(function () {
+                console.log($(this).attr("value"))
+                score += yellowCryt
+                console.log(score)
+                $("#score").text(score)
+                checkScore()
+
+            });
+
+
+            function checkScore() {
+                if (score > winNumber) {
+                    alert("You Lost")
+                    losses++;
+                    $("#losses").text(losses)
+                    reset()
+                } else if (score === winNumber) {
+                    alert("You win")
+                    wins++;
+                    $("#wins").text(wins)
+                    reset()
+                }
+            }
+
+            function reset() {
+                // console.log("hit reset")
+                score = 0;
+
+                winNumber = Math.floor(Math.random() * 75) + 20;
+                $("#winNumber").text(winNumber)
+
+                lueCryt = Math.floor(Math.random() * 12) + 1;
+                yellowCryt = Math.floor(Math.random() * 12) + 1;
+                redCryt = Math.floor(Math.random() * 12) + 1;
+                greenCryt = Math.floor(Math.random() * 12) + 1;
+
+                $("#score").text(score)
+
+            }
+        </script>
+
+</body>
+
+</html>
